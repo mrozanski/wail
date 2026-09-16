@@ -1,0 +1,147 @@
+:root {
+  color-scheme: light dark;
+  --wail-max-measure: 68ch;
+  --wail-border: #d0d0d0;
+  --wail-active-bg: #eef4ff;
+  --wail-toolbar-bg: canvas;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.wail-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--wail-border);
+  background: var(--wail-toolbar-bg);
+}
+
+.wail-title {
+  font-weight: 600;
+}
+
+.wail-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.wail-drawer-toggle {
+  margin-left: auto;
+  display: none;
+}
+
+.wail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  gap: 2rem;
+  align-items: start;
+  padding: 1.5rem;
+}
+
+.wail-content {
+  max-width: var(--wail-max-measure);
+}
+
+.wail-section {
+  scroll-margin-top: 4.5rem;
+  padding-bottom: 1rem;
+}
+
+.wail-margin {
+  position: sticky;
+  top: 4rem;
+  max-height: calc(100vh - 5rem);
+  overflow-y: auto;
+  border-left: 1px solid var(--wail-border);
+  padding-left: 1rem;
+}
+
+.wail-map {
+  margin-bottom: 1.5rem;
+}
+
+.wail-map ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wail-map li {
+  margin: 0.15rem 0;
+}
+
+.wail-map a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.wail-map-item.is-active a {
+  background: var(--wail-active-bg);
+  font-weight: 600;
+}
+
+.wail-annotation {
+  border-radius: 6px;
+  padding: 0.6rem 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.wail-annotation.is-active {
+  background: var(--wail-active-bg);
+}
+
+.wail-annotation h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.wail-finding {
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+
+.wail-finding-basis {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  opacity: 0.65;
+  margin-right: 0.35rem;
+}
+
+@media (max-width: 860px) {
+  .wail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .wail-drawer-toggle {
+    display: inline-block;
+  }
+
+  .wail-margin {
+    position: static;
+    max-height: none;
+    display: none;
+    border-left: none;
+    border-top: 1px solid var(--wail-border);
+    padding-top: 1rem;
+  }
+
+  .wail-margin.is-open {
+    display: block;
+  }
+}
